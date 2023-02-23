@@ -2,7 +2,7 @@
     --primary: #6E33F5;
     --primary-dark: #442095;
     --secondary: #ffce00;
-    --secondary-dark: rgb(233, 287, 2);
+    --secondary-dark: #B69300;
     --white: #fff;
     --black: #000;
 
@@ -19,12 +19,12 @@ html {
     box-sizing: inherit;
 }
 
-/* Globals */
+/** Globals **/
 
 body {
     background-color: var(--primary);
     font-size: 1.6rem;
-    line-height: 1.5%;
+    line-height: 1.5;
 }
 
 p {
@@ -38,7 +38,7 @@ a {
 }
 
 img {
-    max-width: 100%;
+    width: 100%;
 }
 
 .container {
@@ -64,7 +64,7 @@ h3 {
     font-size: 2.4rem;
 }
 
-/* HEADER */
+/** HEADER **/
 .header {
     display: flex;
     justify-content: center;
@@ -74,7 +74,7 @@ h3 {
     margin: 3rem 0;
 }
 
-/* NAVIGATION */
+/** NAVIGATION **/
 .navigation {
     background-color: var(--primary-dark);
     padding: 3rem 0;
@@ -94,7 +94,15 @@ h3 {
     color: var(--secondary);
 }
 
-/* FOOTER */
+/** GRID **/
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 2rem;
+    row-gap: 2rem;
+}
+
+/** FOOTER **/
 
 .footer {
     background-color: var(--primary-dark);
@@ -108,19 +116,159 @@ h3 {
     font-size: 2.2rem;
 }
 
-/* PORDUCTS */
+/** PORDUCTS **/
 .product {
-
+    background-color: var(--primary-dark);
+    padding: 1rem;
 }
 
 .product__image {
-
+    width: 100%;
 }
 
 .product__name {
-
+    font-size: 4rem;
 }
 
 .product__price {
+    font-size: 2.8rem;
+    color: var(--secondary);
+}
+
+.product__name, .product__price {
+    font-family: var(--primaryFont);
+    margin: 1rem 0;
+    text-align: center;
+    line-height: 1.2;
+}
+
+/** GRAFICS **/
+.grafic {
+    min-height: 30rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    grid-column: 1 / 3;
+}
+
+.grafic--camisas {
+    grid-row: 2 / 3;
     
+    background-image: url('./../img/grafico1.jpg');
+}
+
+.grafic--node {
+    background-image: url('./../img/grafico2.jpg');
+    grid-row: 8 / 9;
+}
+
+.nosotros {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+}
+
+.nosotros__contenido {
+    padding: 0 2rem;
+}
+
+.nosotros__contenido p {
+    margin: 0;
+}
+
+.blocks {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.block {
+    text-align: center;
+}
+
+.block__title {
+    margin: 0;
+}
+
+/** PRODUCTO **/
+.camisa {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+}
+
+.form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.form__field {
+    border: 1rem solid var(--primary-dark);
+    background-color:transparent;
+    color: var(--white);
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+    appearance: none;
+}
+
+.form__submit {
+    background-color: var(--secondary);
+    border: none;
+    font-size: 2rem;
+    font-family: var(--primaryFont);
+    padding: 2rem;
+    transition: background-color 0.3s ease;
+}
+
+.form__submit:hover {
+    cursor: pointer;
+    background-color: var(--secondary-dark);
+}
+
+/** MEDIA QUERYS **/
+@media (max-width: 768px) {
+
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .grafic--camisas {
+        grid-row: 2 / 3;
+        grid-column: 1 / 3;
+        background-image: url('./../img/grafico1.jpg');
+    }
+
+    .grafic--node {
+        grid-column: 1 / 3;
+    }
+
+    .nosotros {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .nosotros__contenido {
+        padding: 2rem;
+    }
+    
+
+    .nosotros_image {
+        grid-row: 1 / 2;
+    }
+
+    .blocks {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .block__image {
+        width: 100%;
+    }
+
+    .form {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .form__submit {
+        grid-column: 1 / 3;
+    }
 }
